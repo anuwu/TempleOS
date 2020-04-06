@@ -65,22 +65,17 @@ U0 TreeAdd(Node **_root,Node *tmpn)
     TreeAdd(&root->right,tmpn);
 }
 
-U0 TreeNew()
+U0 TreeNew(I64 l, I64 r)
 {
-  I64 i;
-  Node *tmpn;
-  for (i=0;i<N;i++) {
-    tmpn=CAlloc(sizeof(Node));
-    tmpn->n=RandU16%N;
-
-    if (i==N-1)
-      n1=tmpn->n;
-    else if (i==N-2)
-      n2=tmpn->n;
-
-    TreeAdd(&root,tmpn);
-    Sleep(50);
-  }
+	I64 mid ;
+	Node *tmpn;
+	if (l + 1 != r)
+	{
+			tmpn = CAlloc (sizeof(Node)) ;
+			mid = (l+r)/2 ;
+			tmpn->n = mid ;
+			TreeAdd (&root, tmpn) ;
+	}
 }
  
  
@@ -94,7 +89,7 @@ U0 BalancedInsert()
   DocClear;
   "Scroll with {CTRL-Left Grab}.\n";
   try {
-    TreeNew;
+    TreeNew(0,N);
     PressAKey;
   } catch
     PutExcept;
