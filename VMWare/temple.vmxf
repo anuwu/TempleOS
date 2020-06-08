@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<Foundry>
-<VM>
-<VMId type="string">52 15 e4 8a 1c 13 c6 b6-e4 b8 3f b4 2f b8 fe 9e</VMId>
-<ClientMetaData>
-<clientMetaDataAttributes/>
-<HistoryEventList/></ClientMetaData>
-<vmxPathName type="string">temple.vmx</vmxPathName></VM></Foundry>
