@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#Make TOSZ
+
+sudo echo Make TOSZ
+cc TOSZ.CPP -o TOSZ
+sudo cp TOSZ /usr/local/bin/
+rm -f TOSZ
+cd /usr/local/bin
+sudo chmod 777 TOSZ
