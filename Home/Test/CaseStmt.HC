@@ -6,7 +6,7 @@ U0 caseStmt(I64 in)
 		case 0 :
 			"Zero\n" ;
 			break ;
-		start : 
+		start :
 		"%d : ",in ;
 		case 1 :
 			"One" ;
@@ -16,11 +16,11 @@ U0 caseStmt(I64 in)
 			break ;
 		end :
 		" hello\n" ;
-		break ;		
+		break ;
 	}
-	
+
 	//"This is = %d\n",in;
-	
+
 }
 
 
