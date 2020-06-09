@@ -1,18 +1,18 @@
 #define N	32
- 
+
 class Node
 {
   Node *left,*right;
   I64 n;
 };
- 
+
 I64 n1,n2,common_ancestor;
 Node *root;
- 
+
 #define X_SPACING	16
 #define Y_SPACING	45
 #define ARROW_SPACING	3
- 
+
 U0 ShowTree(CDC *dc,Node *tmpn,I64 *_node_x,I64 *_tree_x,I64 y)
 {
   I64 node_x;
@@ -45,7 +45,7 @@ U0 ShowTree(CDC *dc,Node *tmpn,I64 *_node_x,I64 *_tree_x,I64 y)
     }
   }
 }
- 
+
 U0 DrawIt(CTask *,CDC *dc)
 {
   I64 node_x=0,tree_x=0;
@@ -77,8 +77,8 @@ U0 TreeNew(I64 l, I64 r)
 			TreeAdd (&root, tmpn) ;
 	}
 }
- 
- 
+
+
 U0 BalancedInsert()
 {//Make tree and find common ancestor to n1 & n2.
   root=NULL;
@@ -97,7 +97,3 @@ U0 BalancedInsert()
 }
 
 BalancedInsert ;
-/*Be careful with recursive routines in TempleOS
-because the stack does not grow and will overflow.
-See $LK,"::/Demo/StkGrow.HC"$.
-*/
