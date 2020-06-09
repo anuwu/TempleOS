@@ -1,11 +1,13 @@
+
 U0 caseStmt(I64 in)
 {
+	
 	switch [in]
 	{
 		case 0 :
 			"Zero\n" ;
 			break ;
-		start :
+		start : 
 		"%d : ",in ;
 		case 1 :
 			"One" ;
@@ -15,15 +17,23 @@ U0 caseStmt(I64 in)
 			break ;
 		end :
 		" hello\n" ;
-		break ;
+		break ;		
 	}
+	
+	//"This is = %d\n",in;
+	
 }
 
-U0 main ()
+
+U0 helloWorld ()
 {
 	I64 i ;
 	for (i = 0 ; i < 3 ; i++)
+	{
 		caseStmt (i) ;
+		//"%d\n",i;
+	}
+
 }
 
-main ;
+helloWorld();

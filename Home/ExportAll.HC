@@ -47,7 +47,7 @@ U0 MakeMyISO(U8 *_out_iso_filename)
 MakeMyISO("/Export/TempleOS-Distro.ISO");
 Move ("/Export/TempleOS-Distro.ISO.C", "/Export/TempleOS-Distro.ISO") ; 
 DocClear ;
-"Successfully exported entire distro at %s\n\n", "/Export/TempleOS-Anwesh.ISO" ;
+"Successfully exported entire distro at %s\n\n", "/Export/TempleOS-Distro.ISO" ;
 Dir ("/Export") ;
 Cd (__DIR__) ;
 // Study my account examples $LK,"Cfg Strs",A="FL:::/Demo/AcctExample/TOS/TOSCfg.HC,1"$, $LK,"Update Funs",A="FL:::/Demo/AcctExample/TOS/TOSDistro.HC,1"$.

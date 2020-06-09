@@ -1,0 +1,3 @@
+# Converts all .Z files recursively to a readable format
+
+find . -type f -name "*.Z" | xargs -n1 TOSZ -ascii
