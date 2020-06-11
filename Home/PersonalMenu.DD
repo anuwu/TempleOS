@@ -8,13 +8,19 @@
 
 
 $FG$
-$LK,"Welcome",A="FI:::/Doc/Welcome.DD"$   $LK,"Help & Index",A="FI:::/Doc/HelpIndex.DD"$ 	$LK,"Demo Index",A="FI:::/Doc/DemoIndex.DD"$
+$LK,"Welcome",A="FI:::/Doc/Welcome.DD"$  
+$LK,"Demo Index",A="FI:::/Doc/DemoIndex.DD"$
+$LK,"Glossary",A="FI:::/Doc/Glossary.DD"$
 
-$MA+PU,"FastReboot",LM="BootRAM;"$ $MA,"Take Tour",LM="Cd(\"::/Misc/Tour\");;InFile(\"Tour\");\n"$	$MA-X+PU,"Key Map",LM="KeyMap;View;\n"$
+$MA,"Take Tour",LM="Cd(\"::/Misc/Tour\");;InFile(\"Tour\");\n"$
 
 -----------------------------------------------------------------------------
 
-1. $LK,"Cmd Line Routines",A="HI:Cmd Line (Typically)"$
-2. $LK,"HolyC",A="FI:::/Doc/HolyC.DD"$
-3. $MA,"Demo",LM="Cd(\"C:/Demo\");Dir;\n"$
-4. $MA,"Graphics",LM="Cd(\"C:/Demo/Graphics\");Dir;\n"$
+1. $MA,"Demo",LM="Cd(\"C:/Demo\");Dir;\n"$
+2. $MA,"Graphics",LM="Cd(\"C:/Demo/Graphics\");Dir;\n"$
+3. $MA,"Apps",LM="Cd(\"C:/Apps\");Dir;\n"$
+
+
+$MA,"Export and Shutdown",LM="Cd(\"C:/Home\");#include \"ExpShtdwn.HC.Z\";\n"$
+$MA+PU,"Shutdown",LM="Reboot;"$
+$MA+PU,"FastReboot",LM="BootRAM;"$

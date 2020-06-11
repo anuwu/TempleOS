@@ -1,4 +1,4 @@
 #include"C:/Demo/AcctExample/TOS/TOSTheme.HC.Z" ;
 DocClear ;
 "Welcome to TempleOS!\n";
-Cd (__DIR__) ;
+Cd (__DIR__) ;

@@ -1,4 +1,24 @@
-$WW+H,1$Jana gana mana adhinayaka jayahe
-Bharata bhagya vidhata
-9.029847s ans=0x00000000=0
+$WW+H,1$$FG,5$$TX+CX,"TempleOS V5.03",D="DD_OS_NAME_VERSION"$$FG$
+
+$TX+CX,"Public Domain Operating System"$
+
+$LK,"Help & Index",A="FI:::/Doc/HelpIndex.DD"$, $LK,"Quick Start: Cmd line",A="FI:::/Doc/CmdLineOverview.DD"$
+
+$MA,"Directory",LM="PopUpCd;Dir;\n"$ of C:/Home
+DATE_ TIME_ SIZE
+04/06 11:21 0000 $MA,".",LM="Cd(\"C:/Home/.\");Dir;\n"$
+04/06 11:21 0000 $MA,"..",LM="Cd(\"C:/Home/..\");Dir;\n"$
+04/07 14:14 0000 $MA,"Budget",LM="Cd(\"C:/Home/Budget\");Dir;\n"$
+04/06 20:01 0000 $MA,"Psalmody",LM="Cd(\"C:/Home/Psalmody\");Dir;\n"$
+04/06 20:10 0000 $MA,"Test",LM="Cd(\"C:/Home/Test\");Dir;\n"$
+06/11 20:23 368D $LK,"GamesMenu.DD.Z",A="FI:C:/Home/GamesMenu.DD.Z"$
+06/11 19:33 01F5 $LK,"PersonalMenu.DD.Z",A="FI:C:/Home/PersonalMenu.DD.Z"$
+06/10 16:26 0067 $LK,"Tmp.DD.Z",A="FI:C:/Home/Tmp.DD.Z"$
+06/10 17:17 0F3D $LK,"HomeKeyPlugIns.HC",A="FI:C:/Home/HomeKeyPlugIns.HC"$
+06/10 16:32 0068 $LK,"Once.HC",A="FI:C:/Home/Once.HC"$
+06/11 20:24 049C $LK,"ExportAll.HC.Z",A="FI:C:/Home/ExportAll.HC.Z"$
+06/10 16:28 0264 $LK,"ExportHome.HC.Z",A="FI:C:/Home/ExportHome.HC.Z"$
+06/10 15:45 0167 $LK,"HomeLocalize.HC.Z",A="FI:C:/Home/HomeLocalize.HC.Z"$
+06/10 15:45 013E $LK,"MakeHome.HC.Z",A="FI:C:/Home/MakeHome.HC.Z"$
+06/12 00:55 02F9 $LK,"Registry.HC.Z",A="FI:C:/Home/Registry.HC.Z"$
 C:/Home>$PT$
