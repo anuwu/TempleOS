@@ -12,7 +12,8 @@ $LK,"Welcome",A="FI:::/Doc/Welcome.DD"$
 $LK,"Demo Index",A="FI:::/Doc/DemoIndex.DD"$
 $LK,"Glossary",A="FI:::/Doc/Glossary.DD"$
 
-$MA,"Take Tour",LM="Cd(\"::/Misc/Tour\");;InFile(\"Tour\");\n"$
+$MA,"Goto Home",LM="Cd(\"~\");\n"$
+$MA,"Take Tour",LM="Cd(\"::/Misc/Tour\");InFile(\"Tour\");\n"$
 
 -----------------------------------------------------------------------------
 
@@ -21,6 +22,6 @@ $MA,"Take Tour",LM="Cd(\"::/Misc/Tour\");;InFile(\"Tour\");\n"$
 3. $MA,"Apps",LM="Cd(\"C:/Apps\");Dir;\n"$
 
 
-$MA,"Export and Shutdown",LM="Cd(\"C:/Home\");#include \"ExpShtdwn.HC.Z\";\n"$
+$MA,"Export and Shutdown",LM="#include \"C:/Home/ExpShtdwn.HC.Z\";\n"$
 $MA+PU,"Shutdown",LM="Reboot;"$
-$MA+PU,"FastReboot",LM="BootRAM;"$
+$MA,"Fast Reboot",LM="#include \"C:/Home/FstRbt.HC.Z\";\n"$

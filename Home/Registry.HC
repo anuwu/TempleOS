@@ -22,7 +22,7 @@ HashPublic("INS_REG_MACHINE_NUM",HTT_DEFINE_STR);
 
 #help_index ""
 $ID,-2$$ID,-2$$TR,"Once"$
-$ID,2$$TR,"Adam"$
+$ID,2$$TR-C,"Adam"$
 $ID,2$$ID,-2$$TR,"User"$
 $ID,2$$ID,-2$$ID,-2$$TR,"TempleOS"$
 $ID,2$$TR,"Varoom"$
@@ -46,4 +46,4 @@ $ID,2$$TR,"Game1"$
 $ID,2$F64 best_score=272.18626;
 $TR,"SimpleVal"$
 $ID,2$1235;
-$ID,-2$$ID,-2$$ID,-2$
+$ID,-2$$ID,-2$$ID,-2$ 

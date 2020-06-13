@@ -23,9 +23,8 @@ U0 ExportHomeISO(U8 *_out_iso_filename)
   Free(out_iso_filename);
 }
 
-ExportHomeISO("/Export/TempleOS-Home.ISO");
-Move ("/Export/TempleOS-Home.ISO.C", "/Export/TempleOS-Home.ISO") ;
+ExportHomeISO("/Export/MyHome.ISO.C");
 DocClear ;
-"Successfully exported Home directory at %s\n\n","/Export/TempleOS-Home.ISO" ;
+"Successfully exported Home directory at %s\n\n","/Export/MyHome.ISO.C" ;
 Dir ("/Export") ;
 Cd (__DIR__) ;

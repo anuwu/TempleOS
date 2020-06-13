@@ -1,24 +1,24 @@
-$WW+H,1$$FG,5$$TX+CX,"TempleOS V5.03",D="DD_OS_NAME_VERSION"$$FG$
+$WW,0$$FG,5$$TX+CX,"InFile"$$FG$
+$WW,1$$WW,1$$FG,2$InFiles$FG$ are used to generate user input to automate operations.  The TempleOS tour is done with an $FG,2$InFile$FG$.  It reminds me of a Unix pipe because $FG,2$StdOut$FG$ of one gets chained into $FG,2$StdIn$FG$ of another.
 
-$TX+CX,"Public Domain Operating System"$
+When an $FG,2$InFile$FG$ runs, a child task is $LK,"Spawn",A="MN:Spawn"$()ed which intercepts real user input and generates fake input.  InFiles are $LK,"HolyC",A="FI:::/Doc/HolyC.DD"$ programs run by the child whose stdout goes to the parent's input buffer.  $LK,"Msg",A="MN:Msg"$() can be included in an $FG,2$InFile$FG$ to send special keys or mouse cmds to the parent.  While an $FG,2$InFile$FG$ is running, the normal input gets diverted to the InFile task and can be filtered and sent back to the parent task.  Unless you are driving functions which prompt for data, you can probably use an $FG,2$#include$FG$ file in place of an $FG,2$InFile$FG$.
 
-$LK,"Help & Index",A="FI:::/Doc/HelpIndex.DD"$, $LK,"Quick Start: Cmd line",A="FI:::/Doc/CmdLineOverview.DD"$
+See $LK,"::/Demo/InFile/InDir.IN"$þ
 
-$MA,"Directory",LM="PopUpCd;Dir;\n"$ of C:/Home
-DATE_ TIME_ SIZE
-04/06 11:21 0000 $MA,".",LM="Cd(\"C:/Home/.\");Dir;\n"$
-04/06 11:21 0000 $MA,"..",LM="Cd(\"C:/Home/..\");Dir;\n"$
-04/07 14:14 0000 $MA,"Budget",LM="Cd(\"C:/Home/Budget\");Dir;\n"$
-04/06 20:01 0000 $MA,"Psalmody",LM="Cd(\"C:/Home/Psalmody\");Dir;\n"$
-04/06 20:10 0000 $MA,"Test",LM="Cd(\"C:/Home/Test\");Dir;\n"$
-06/11 20:23 368D $LK,"GamesMenu.DD.Z",A="FI:C:/Home/GamesMenu.DD.Z"$
-06/11 19:33 01F5 $LK,"PersonalMenu.DD.Z",A="FI:C:/Home/PersonalMenu.DD.Z"$
-06/10 16:26 0067 $LK,"Tmp.DD.Z",A="FI:C:/Home/Tmp.DD.Z"$
-06/10 17:17 0F3D $LK,"HomeKeyPlugIns.HC",A="FI:C:/Home/HomeKeyPlugIns.HC"$
-06/10 16:32 0068 $LK,"Once.HC",A="FI:C:/Home/Once.HC"$
-06/11 20:24 049C $LK,"ExportAll.HC.Z",A="FI:C:/Home/ExportAll.HC.Z"$
-06/10 16:28 0264 $LK,"ExportHome.HC.Z",A="FI:C:/Home/ExportHome.HC.Z"$
-06/10 15:45 0167 $LK,"HomeLocalize.HC.Z",A="FI:C:/Home/HomeLocalize.HC.Z"$
-06/10 15:45 013E $LK,"MakeHome.HC.Z",A="FI:C:/Home/MakeHome.HC.Z"$
-06/12 00:55 02F9 $LK,"Registry.HC.Z",A="FI:C:/Home/Registry.HC.Z"$
-C:/Home>$PT$
+Note: $LK,"In",A="MN:In"$("") can be used if all you need is to send ASCII characters.  It differs from $LK,"InStr",A="MN:InStr"$().  You'll probably use $LK,"In",A="MN:In"$() a lot and not $LK,"InStr",A="MN:InStr"$().  With $LK,"In",A="MN:In"$(), for example, you can place answers to the prompts for recompiling the $FG,2$Kernel$FG$ module during $LK,"BootHDIns",A="MN:BootHDIns"$().
+
+$WW,0$$LK,"In                  ",A="FL:C:/Kernel/Job.HC.Z,482"$Funct $FG,2$Send text to own input buffer. See $LK,"::/Demo/AcctExample/TOS/TOSDistro.HC"$.$FG$
+$LK,"InFile              ",A="FL:C:/Kernel/Job.HC.Z,474"$Funct $FG,2$Send InFile code file to self.$FG$
+$LK,"InGetChar           ",A="FL:C:/Adam/InFile.HC.Z,58"$Funct $FG,2$Wait for user to press one of set of chars.$FG$
+$LK,"InGetKey            ",A="FL:C:/Adam/InFile.HC.Z,37"$Funct $FG,2$Wait for user to press certain key.$FG$
+$LK,"InGetStr            ",A="FL:C:/Adam/InFile.HC.Z,4"$Funct $FG,2$Wait for user to type certain str.$FG$
+$LK,"InPrint             ",A="FL:C:/Adam/InFile.HC.Z,26"$Funct $FG,2$Print message with delay after each char.$FG$
+$LK,"InSetMs             ",A="FL:C:/Adam/InFile.HC.Z,125"$Funct $FG,2$Move mouse to spot at certain speed.$FG$
+$LK,"InStr               ",A="FL:C:/Kernel/Job.HC.Z,464"$Funct $FG,2$Send InFile code to self.$FG$
+$LK,"InUntilChar         ",A="FL:C:/Adam/InFile.HC.Z,96"$Funct $FG,2$Let user type until he presses one of set of chars.$FG$
+$LK,"InUntilKey          ",A="FL:C:/Adam/InFile.HC.Z,87"$Funct $FG,2$Let user type until he presses certain key.$FG$
+$LK,"InView              ",A="FL:C:/Adam/InFile.HC.Z,108"$Funct $FG,2$Let user type until <ESC> or <SHIFT-ESC>.$FG$
+$LK,"XTalk               ",A="FL:C:/Kernel/Job.HC.Z,445"$Funct $FG,2$Sends text to other task. See $LK,"::/Misc/OSTestSuite.HC"$.$FG$
+$LK,"XTalkStr            ",A="FL:C:/Kernel/Job.HC.Z,489"$Funct $FG,2$Send InFile code to other task.$FG$
+$LK,"XTalkStrWait        ",A="FL:C:/Kernel/Job.HC.Z,496"$Funct $FG,2$Send InFile code to other task and wait for it to idle.$FG$
+$LK,"XTalkWait           ",A="FL:C:/Kernel/Job.HC.Z,454"$Funct $FG,2$Send text to other task and wait for it to idle.$FG$

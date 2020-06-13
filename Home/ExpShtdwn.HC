@@ -1,6 +1,6 @@
 DocClear ;
 "Shutting down TempleOS\n" ;
-#include "ExportAll.HC.Z" ;
+#include "C:/Home/ExportAll.HC.Z" ;
 DocClear ;
-#include "ExportHome.HC.Z" ;
+#include "C:/Home/ExportHome.HC.Z" ;
 Reboot ;

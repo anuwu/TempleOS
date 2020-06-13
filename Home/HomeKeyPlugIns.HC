@@ -88,7 +88,7 @@ Bool MyPutKey(I64 ch,I64 sc)
 		TimeIns;
 	    }
 	    return TRUE;
-	}
+	}
 	break;
       case 'a':
 	if (sc&SCF_KEY_DESC)
@@ -102,6 +102,14 @@ Bool MyPutKey(I64 ch,I64 sc)
 	else
 	  AutoComplete;
 	return TRUE;
+      case 'c' :
+	if (sc&SCF_KEY_DESC)
+	  KeyDescSet("Cmd/Clear Document");
+	else {
+	  DocClear ;
+	  "%s>$$PT$$", __DIR__;
+	}
+	return TRUE ;
       case 'h':
 	if (sc&SCF_KEY_DESC)
 	  KeyDescSet("Cmd/WinTileHorz");
