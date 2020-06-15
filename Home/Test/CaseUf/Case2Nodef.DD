@@ -1,0 +1,42 @@
+RDI i
+RSI j
+FFFFFFF8 Stk Size
+$HL,1$$LK,"&Case2Nodef+0x0000",A="FL:C:/Home/Test/CaseUf/Case2Nodef.HC.Z,1"$
+      &Case2Nodef+0x0000 55           PUSH	U64 RBP
+      &Case2Nodef+0x0001 488BEC       MOV	U64 RBP,U64 RSP
+      &Case2Nodef+0x0004 4883EC08     SUB	U64 RSP,I8 08
+      &Case2Nodef+0x0008 56           PUSH	U64 RSI
+      &Case2Nodef+0x0009 57           PUSH	U64 RDI
+
+      // Loading switch variable
+      &Case2Nodef+0x000A 488B7D10     MOV	U64 RDI,U64 10[RBP]
+      &Case2Nodef+0x000E 480FBE9F2160 MOVSX	U64 RBX,U8 30F96021[RDI]
+      &Case2Nodef+0x0014 F930        
+      &Case2Nodef+0x0016 81C3FF5FF930 ADD	U32 EBX,I32 30F95FFF
+      &Case2Nodef+0x001C FFE3         JMP	U32 EBX		// Going to jump table probably
+      &Case2Nodef+0x001E 90           XCHG	U32 EAX,U32 EAX
+
+      // Case 1
+      &Case2Nodef+0x001F 33F6         XOR	U64 RSI,U64 RSI
+      &Case2Nodef+0x0021 40B601       MOV	U8 RSIu8,U8 01
+      &Case2Nodef+0x0024 EB05         JMP	I8 $LK,"&Case2Nodef+0x002B",A="FL:C:/Home/Test/CaseUf/Case2Nodef.HC.Z,1"$ 
+
+      // Case 2
+      &Case2Nodef+0x0026 33F6         XOR	U64 RSI,U64 RSI
+      &Case2Nodef+0x0028 40B602       MOV	U8 RSIu8,U8 02
+
+      // Out of switch case
+      &Case2Nodef+0x002B 6A00         PUSH	I8 00
+      &Case2Nodef+0x002D 682460F930   PUSH	I32 30F96024
+      &Case2Nodef+0x0032 E897E707CF   CALL	I32 $LK,"&Print+0x0000",A="FL:C:/Kernel/StrPrint.HC.Z,890"$ 
+      &Case2Nodef+0x0037 4883C410     ADD	U64 RSP,I8 10
+      &Case2Nodef+0x003B 5F           POP	U64 RDI
+      &Case2Nodef+0x003C 5E           POP	U64 RSI
+      &Case2Nodef+0x003D C9           LEAVE
+      &Case2Nodef+0x003E C20800       RET1	I16 0008
+      &Case2Nodef+0x0041 0C00         OR	U8 AL,U8 00
+      &Case2Nodef+0x0043 07           POP	ES
+      &Case2Nodef+0x0044 446F         OUTSD
+      &Case2Nodef+0x0046 6E           OUTSB
+      &Case2Nodef+0x0047 65210A       AND	U32 GS:[RDX],U32 ECX
+      &Case2Nodef+0x004A 0032         ADD	U8 [RDX],U8 DH

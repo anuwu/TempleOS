@@ -1,0 +1,57 @@
+RDI i
+RSI j
+FFFFFFF8 Stk Size
+$HL,1$$LK,"&Case1Nodef+0x0000",A="FL:C:/Home/Test/CaseUf/Case1Nodef.HC.Z,1"$
+      &Case1Nodef+0x0000 55           PUSH	U64 RBP
+      &Case1Nodef+0x0001 488BEC       MOV	U64 RBP,U64 RSP
+      &Case1Nodef+0x0004 4883EC08     SUB	U64 RSP,I8 08
+      &Case1Nodef+0x0008 56           PUSH	U64 RSI
+      &Case1Nodef+0x0009 57           PUSH	U64 RDI
+      &Case1Nodef+0x000A 488B7D10     MOV	U64 RDI,U64 10[RBP]
+
+      // Printing i
+      &Case1Nodef+0x000E 57           PUSH	U64 RDI
+      &Case1Nodef+0x000F 6A01         PUSH	I8 01	// One argument
+      &Case1Nodef+0x0011 68B0284E32   PUSH	I32 324E28B0
+      &Case1Nodef+0x0016 E8431FB3CD   CALL	I32 $LK,"&Print+0x0000",A="FL:C:/Kernel/StrPrint.HC.Z,890"$ 
+      &Case1Nodef+0x001B 4883C418     ADD	U64 RSP,I8 18
+
+      // Jumping out of switch directly as there is no default
+      &Case1Nodef+0x001F 4883FF04     CMP	U64 RDI,I8 04
+      &Case1Nodef+0x0023 7324         JAE	I8 $LK,"&Case1Nodef+0x0049",A="FL:C:/Home/Test/CaseUf/Case1Nodef.HC.Z,1"$ 
+
+      // Jumpy able
+      &Case1Nodef+0x0025 480FBE9FB428 MOVSX	U64 RBX,U8 324E28B4[RDI]
+      &Case1Nodef+0x002B 4E32        
+      &Case1Nodef+0x002D 81C386284E32 ADD	U32 EBX,I32 324E2886
+      &Case1Nodef+0x0033 FFE3         JMP	U32 EBX
+      &Case1Nodef+0x0035 90           XCHG	U32 EAX,U32 EAX
+
+      // Case 1
+      &Case1Nodef+0x0036 33F6         XOR	U64 RSI,U64 RSI
+      &Case1Nodef+0x0038 40B601       MOV	U8 RSIu8,U8 01
+      &Case1Nodef+0x003B EB0C         JMP	I8 $LK,"&Case1Nodef+0x0049",A="FL:C:/Home/Test/CaseUf/Case1Nodef.HC.Z,1"$ 
+
+      // Case 2
+      &Case1Nodef+0x003D 33F6         XOR	U64 RSI,U64 RSI
+      &Case1Nodef+0x003F 40B602       MOV	U8 RSIu8,U8 02
+      &Case1Nodef+0x0042 EB05         JMP	I8 $LK,"&Case1Nodef+0x0049",A="FL:C:/Home/Test/CaseUf/Case1Nodef.HC.Z,1"$ 
+
+      // Case 3
+      &Case1Nodef+0x0044 33F6         XOR	U64 RSI,U64 RSI
+      &Case1Nodef+0x0046 40B603       MOV	U8 RSIu8,U8 03
+
+      // Outside switch
+      &Case1Nodef+0x0049 56           PUSH	U64 RSI
+      &Case1Nodef+0x004A 6A01         PUSH	I8 01
+      &Case1Nodef+0x004C 68B8284E32   PUSH	I32 324E28B8
+      &Case1Nodef+0x0051 E8081FB3CD   CALL	I32 $LK,"&Print+0x0000",A="FL:C:/Kernel/StrPrint.HC.Z,890"$ 
+      &Case1Nodef+0x0056 4883C418     ADD	U64 RSP,I8 18
+      &Case1Nodef+0x005A 5F           POP	U64 RDI
+      &Case1Nodef+0x005B 5E           POP	U64 RSI
+      &Case1Nodef+0x005C C9           LEAVE
+      &Case1Nodef+0x005D C20800       RET1	I16 0008
+      &Case1Nodef+0x0060 25640A0013   AND	U32 EAX,U32 13000A64
+      &Case1Nodef+0x0065 0007         ADD	U8 [RDI],U8 AL
+      &Case1Nodef+0x0067 0E           PUSH	CS
+      &Case1Nodef+0x0068 25640A00A3   AND	U32 EAX,U32 A3000A64

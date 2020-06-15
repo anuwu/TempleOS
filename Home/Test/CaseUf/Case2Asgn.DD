@@ -1,0 +1,47 @@
+RDI i
+RSI j
+FFFFFFF8 Stk Size
+$HL,1$$LK,"&Case2Asgn+0x0000",A="FL:C:/Home/Test/CaseUf/Case2Asgn.HC.Z,1"$
+       &Case2Asgn+0x0000 55           PUSH	U64 RBP
+       &Case2Asgn+0x0001 488BEC       MOV	U64 RBP,U64 RSP
+       &Case2Asgn+0x0004 4883EC08     SUB	U64 RSP,I8 08
+       &Case2Asgn+0x0008 56           PUSH	U64 RSI
+       &Case2Asgn+0x0009 57           PUSH	U64 RDI
+
+       // Loading switch variable. There is no max case value checking
+       &Case2Asgn+0x000A 488B7D10     MOV	U64 RDI,U64 10[RBP]
+       &Case2Asgn+0x000E 480FBE9F1806 MOVSX	U64 RBX,U8 31370618[RDI]
+       &Case2Asgn+0x0014 3731        
+       &Case2Asgn+0x0016 81C3EF053731 ADD	U32 EBX,I32 313705EF
+       &Case2Asgn+0x001C FFE3         JMP	U32 EBX		// Jumping to jump table
+       &Case2Asgn+0x001E 90           XCHG	U32 EAX,U32 EAX
+
+       // Case 1
+       &Case2Asgn+0x001F 33F6         XOR	U64 RSI,U64 RSI
+       &Case2Asgn+0x0021 40B601       MOV	U8 RSIu8,U8 01
+       &Case2Asgn+0x0024 EB0C         JMP	I8 $LK,"&Case2Asgn+0x0032",A="FL:C:/Home/Test/CaseUf/Case2Asgn.HC.Z,1"$ 
+
+       // Case 2
+       &Case2Asgn+0x0026 33F6         XOR	U64 RSI,U64 RSI
+       &Case2Asgn+0x0028 40B602       MOV	U8 RSIu8,U8 02
+       &Case2Asgn+0x002B EB05         JMP	I8 $LK,"&Case2Asgn+0x0032",A="FL:C:/Home/Test/CaseUf/Case2Asgn.HC.Z,1"$ 
+
+       // Default case (??) But it doesn't work!
+       &Case2Asgn+0x002D 33F6         XOR	U64 RSI,U64 RSI
+       &Case2Asgn+0x002F 40B603       MOV	U8 RSIu8,U8 03
+
+       // Out of switch
+       &Case2Asgn+0x0032 6A00         PUSH	I8 00
+       &Case2Asgn+0x0034 681B063731   PUSH	I32 3137061B
+       &Case2Asgn+0x0039 E8A041CACE   CALL	I32 $LK,"&Print+0x0000",A="FL:C:/Kernel/StrPrint.HC.Z,890"$ 
+       &Case2Asgn+0x003E 4883C410     ADD	U64 RSP,I8 10
+       &Case2Asgn+0x0042 5F           POP	U64 RDI
+       &Case2Asgn+0x0043 5E           POP	U64 RSI
+       &Case2Asgn+0x0044 C9           LEAVE
+       &Case2Asgn+0x0045 C20800       RET1	I16 0008
+       &Case2Asgn+0x0048 0E           PUSH	CS
+       &Case2Asgn+0x0049 0007         ADD	U8 [RDI],U8 AL
+       &Case2Asgn+0x004B 446F         OUTSD
+       &Case2Asgn+0x004D 6E           OUTSB
+       &Case2Asgn+0x004E 65210A       AND	U32 GS:[RDX],U32 ECX
+       &Case2Asgn+0x0051 0000         ADD	U8 [RAX],U8 AL

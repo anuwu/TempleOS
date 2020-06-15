@@ -7,21 +7,24 @@
 	-----------------------------------------------------------
 
 
-$FG$
-$LK,"Welcome",A="FI:::/Doc/Welcome.DD"$  
-$LK,"Demo Index",A="FI:::/Doc/DemoIndex.DD"$
-$LK,"Glossary",A="FI:::/Doc/Glossary.DD"$
+       			$LK,"Welcome",A="FI:::/Doc/Welcome.DD"$			$MA,"Goto Home",LM="Cd(\"~\");\n"$					  
+			$LK,"Demo Index",A="FI:::/Doc/DemoIndex.DD"$		$MA,"Take Tour",LM="Cd(\"::/Misc/Tour\");InFile(\"Tour\");\n"$
+                                    $LK,"Glossary",A="FI:::/Doc/Glossary.DD"$
 
-$MA,"Goto Home",LM="Cd(\"~\");\n"$
-$MA,"Take Tour",LM="Cd(\"::/Misc/Tour\");InFile(\"Tour\");\n"$
+------------------------------------------------------------------------------
 
------------------------------------------------------------------------------
-
+$FG,2$Quick Links $FG$-
 1. $MA,"Demo",LM="Cd(\"C:/Demo\");Dir;\n"$
 2. $MA,"Graphics",LM="Cd(\"C:/Demo/Graphics\");Dir;\n"$
 3. $MA,"Apps",LM="Cd(\"C:/Apps\");Dir;\n"$
 
 
-$MA,"Export and Shutdown",LM="#include \"C:/Home/ExpShtdwn.HC.Z\";\n"$
-$MA+PU,"Shutdown",LM="Reboot;"$
-$MA,"Fast Reboot",LM="#include \"C:/Home/FstRbt.HC.Z\";\n"$
+$FG,2$Shutdown commands $FG$-
+1. $MA,"Export and Shutdown",LM="#include \"C:/Home/ExpShtdwn.HC.Z\";\n"$
+2. $MA+PU,"Shutdown",LM="Reboot;"$
+3. $MA+PU,"Fast Reboot",LM="FstRbt;"$
+
+
+$FG,2$References $FG$-
+1. Boot process is $LK,"here",A="HI:Boot"$
+2. Alt-keymaps is $LK,"here",A="FI:C:/Home/HomeKeyPlugIns.HC"$

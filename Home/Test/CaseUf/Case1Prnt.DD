@@ -1,0 +1,67 @@
+Note - The name of the function is actually Case1Prnt
+
+00000000 Stk Size
+$HL,1$$LK,"&Case1+0x0000",A="FL:C:/Home/Test/CaseUf/Case1.HC.Z,1"$
+           &Case1+0x0000 55           PUSH	U64 RBP
+           &Case1+0x0001 488BEC       MOV	U64 RBP,U64 RSP
+           &Case1+0x0004 56           PUSH	U64 RSI
+           &Case1+0x0005 488B7510     MOV	U64 RSI,U64 10[RBP]
+
+	   // Comparing with highest case value and jumping to default case
+           &Case1+0x0009 4883FE04     CMP	U64 RSI,I8 04  
+           &Case1+0x000D 7347         JAE	I8 $LK,"&Case1+0x0056",A="FL:C:/Home/Test/CaseUf/Case1.HC.Z,1"$ 
+	   
+	   // Going to the jump table probably
+           &Case1+0x000F 480FBE9EC387 MOVSX	U64 RBX,U8 323C87C3[RSI]
+           &Case1+0x0015 3C32        
+           &Case1+0x0017 81C378873C32 ADD	U32 EBX,I32 323C8778
+           &Case1+0x001D FFE3         JMP	U32 EBX
+           &Case1+0x001F 90           XCHG	U32 EAX,U32 EAX
+	   
+	   // Case 1
+           &Case1+0x0020 6A00         PUSH	I8 00
+           &Case1+0x0022 68C7873C32   PUSH	I32 323C87C7
+           &Case1+0x0027 E82AC0C4CD   CALL	I32 $LK,"&Print+0x0000",A="FL:C:/Kernel/StrPrint.HC.Z,890"$ 
+           &Case1+0x002C 4883C410     ADD	U64 RSP,I8 10
+           &Case1+0x0030 EB34         JMP	I8 $LK,"&Case1+0x0066",A="FL:C:/Home/Test/CaseUf/Case1.HC.Z,1"$ // Jumping out of switch
+
+	   // Case 2
+           &Case1+0x0032 6A00         PUSH	I8 00
+           &Case1+0x0034 68CC873C32   PUSH	I32 323C87CC
+           &Case1+0x0039 E818C0C4CD   CALL	I32 $LK,"&Print+0x0000",A="FL:C:/Kernel/StrPrint.HC.Z,890"$ 
+           &Case1+0x003E 4883C410     ADD	U64 RSP,I8 10
+           &Case1+0x0042 EB22         JMP	I8 $LK,"&Case1+0x0066",A="FL:C:/Home/Test/CaseUf/Case1.HC.Z,1"$ // Jumping out of switch
+
+	   // Case 3
+           &Case1+0x0044 6A00         PUSH	I8 00
+           &Case1+0x0046 68D1873C32   PUSH	I32 323C87D1
+           &Case1+0x004B E806C0C4CD   CALL	I32 $LK,"&Print+0x0000",A="FL:C:/Kernel/StrPrint.HC.Z,890"$ 
+           &Case1+0x0050 4883C410     ADD	U64 RSP,I8 10
+           &Case1+0x0054 EB10         JMP	I8 $LK,"&Case1+0x0066",A="FL:C:/Home/Test/CaseUf/Case1.HC.Z,1"$ // Jumping out of switch
+
+	   // Default
+           &Case1+0x0056 6A00         PUSH	I8 00
+           &Case1+0x0058 68D8873C32   PUSH	I32 323C87D8
+           &Case1+0x005D E8F4BFC4CD   CALL	I32 $LK,"&Print+0x0000",A="FL:C:/Kernel/StrPrint.HC.Z,890"$ 
+           &Case1+0x0062 4883C410     ADD	U64 RSP,I8 10
+
+	   // Outside switch
+           &Case1+0x0066 5E           POP	U64 RSI
+           &Case1+0x0067 5D           POP	U64 RBP
+           &Case1+0x0068 C20800       RET1	I16 0008
+
+           &Case1+0x006B 360012       ADD	U8 SS:[RDX],U8 DL
+           &Case1+0x006E 244F         AND	U8 AL,I8 4F
+           &Case1+0x0070 6E           OUTSB
+           &Case1+0x0071 650A00       OR	U8 AL,U8 GS:[RAX]
+           &Case1+0x0074 54           PUSH	U64 RSP
+           &Case1+0x0075 776F         JA	I8 $LK,"&Case1+0x00E6",A="AD:0x323C883E"$ 
+           &Case1+0x0077 0A00         OR	U8 AL,U8 [RAX]
+           &Case1+0x0079 54           PUSH	U64 RSP
+           &Case1+0x007A 687265650A   PUSH	I32 0A656572
+           &Case1+0x007F 00446566     ADD	U8 66[RBP],U8 AL
+           &Case1+0x0083 61           POPAD
+           &Case1+0x0084 756C         JNE	I8 $LK,"&Case1+0x00F2",A="AD:0x323C884A"$ 
+           &Case1+0x0086 740A         JE	I8 $LK,"&Case1+0x0092",A="AD:0x323C87EA"$ 
+           &Case1+0x0088 0000         ADD	U8 [RAX],U8 AL
+$HL,0$Code Size:0089

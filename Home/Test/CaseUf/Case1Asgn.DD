@@ -1,0 +1,50 @@
+RDI i
+RSI j
+FFFFFFF8 Stk Size
+$HL,1$$LK,"&Case1Asgn+0x0000",A="FL:C:/Home/Test/CaseUf/Case1Asgn.HC.Z,1"$
+       &Case1Asgn+0x0000 55           PUSH	U64 RBP
+       &Case1Asgn+0x0001 488BEC       MOV	U64 RBP,U64 RSP
+       &Case1Asgn+0x0004 4883EC08     SUB	U64 RSP,I8 08
+       &Case1Asgn+0x0008 56           PUSH	U64 RSI
+       &Case1Asgn+0x0009 57           PUSH	U64 RDI
+       &Case1Asgn+0x000A 488B7D10     MOV	U64 RDI,U64 10[RBP]
+       &Case1Asgn+0x000E 4883FF04     CMP	U64 RDI,I8 04
+       &Case1Asgn+0x0012 7326         JAE	I8 $LK,"&Case1Asgn+0x003A",A="FL:C:/Home/Test/CaseUf/Case1Asgn.HC.Z,1"$  // Jumping to default
+
+       &Case1Asgn+0x0014 480FBE9F960B MOVSX	U64 RBX,U8 31330B96[RDI]
+       &Case1Asgn+0x001A 3331        
+       &Case1Asgn+0x001C 81C3650B3331 ADD	U32 EBX,I32 31330B65
+       &Case1Asgn+0x0022 FFE3         JMP	U32 EBX 	      // Going to jump table
+       &Case1Asgn+0x0024 90           XCHG	U32 EAX,U32 EAX
+
+       // Case 1
+       &Case1Asgn+0x0025 33F6         XOR	U64 RSI,U64 RSI
+       &Case1Asgn+0x0027 40B601       MOV	U8 RSIu8,U8 01
+       &Case1Asgn+0x002A EB13         JMP	I8 $LK,"&Case1Asgn+0x003F",A="FL:C:/Home/Test/CaseUf/Case1Asgn.HC.Z,1"$ 
+
+       // Case 2
+       &Case1Asgn+0x002C 33F6         XOR	U64 RSI,U64 RSI
+       &Case1Asgn+0x002E 40B602       MOV	U8 RSIu8,U8 02
+       &Case1Asgn+0x0031 EB0C         JMP	I8 $LK,"&Case1Asgn+0x003F",A="FL:C:/Home/Test/CaseUf/Case1Asgn.HC.Z,1"$ 
+
+       // Case 3
+       &Case1Asgn+0x0033 33F6         XOR	U64 RSI,U64 RSI
+       &Case1Asgn+0x0035 40B603       MOV	U8 RSIu8,U8 03
+       &Case1Asgn+0x0038 EB05         JMP	I8 $LK,"&Case1Asgn+0x003F",A="FL:C:/Home/Test/CaseUf/Case1Asgn.HC.Z,1"$ 
+
+       // Default case
+       &Case1Asgn+0x003A 33F6         XOR	U64 RSI,U64 RSI
+       &Case1Asgn+0x003C 40B604       MOV	U8 RSIu8,U8 04
+ 
+       // Outside switch
+       &Case1Asgn+0x003F 56           PUSH	U64 RSI
+       &Case1Asgn+0x0040 6A01         PUSH	I8 01
+       &Case1Asgn+0x0042 689A0B3331   PUSH	I32 31330B9A
+       &Case1Asgn+0x0047 E8223CCECE   CALL	I32 $LK,"&Print+0x0000",A="FL:C:/Kernel/StrPrint.HC.Z,890"$ 
+       &Case1Asgn+0x004C 4883C418     ADD	U64 RSP,I8 18
+       &Case1Asgn+0x0050 5F           POP	U64 RDI
+       &Case1Asgn+0x0051 5E           POP	U64 RSI
+       &Case1Asgn+0x0052 C9           LEAVE
+       &Case1Asgn+0x0053 C20800       RET1	I16 0008
+       &Case1Asgn+0x0056 1500070E25   ADC	U32 EAX,U32 250E0700
+       &Case1Asgn+0x005B 640A00       OR	U8 AL,U8 FS:[RAX]
