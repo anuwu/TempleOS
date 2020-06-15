@@ -1,0 +1,74 @@
+RDI i
+RSI j
+FFFFFFF8 Stk Size
+$HL,1$$LK,"&SubcaseAsgn+0x0000",A="FL:C:/Home/Test/CaseUf/SubcaseAsgn.HC.Z,1"$
+     &SubcaseAsgn+0x0000 55           PUSH	U64 RBP
+     &SubcaseAsgn+0x0001 488BEC       MOV	U64 RBP,U64 RSP
+     &SubcaseAsgn+0x0004 4883EC08     SUB	U64 RSP,I8 08
+     &SubcaseAsgn+0x0008 56           PUSH	U64 RSI
+     &SubcaseAsgn+0x0009 57           PUSH	U64 RDI
+
+     // Switch init
+     &SubcaseAsgn+0x000A 488B7D10     MOV	U64 RDI,U64 10[RBP]
+     &SubcaseAsgn+0x000E 4883FF05     CMP	U64 RDI,I8 05
+     &SubcaseAsgn+0x0012 7359         JAE	I8 $LK,"&SubcaseAsgn+0x006D",A="FL:C:/Home/Test/CaseUf/SubcaseAsgn.HC.Z,1"$	// Default case 
+     &SubcaseAsgn+0x0014 480FBE9FCE67 MOVSX	U64 RBX,U8 313867CE[RDI]
+     &SubcaseAsgn+0x001A 3831        
+     &SubcaseAsgn+0x001C 81C36D673831 ADD	U32 EBX,I32 3138676D
+     &SubcaseAsgn+0x0022 FFE3         JMP	U32 EBX
+     &SubcaseAsgn+0x0024 90           XCHG	U32 EAX,U32 EAX
+
+     // Case 1
+     &SubcaseAsgn+0x0025 33F6         XOR	U64 RSI,U64 RSI
+     &SubcaseAsgn+0x0027 40B601       MOV	U8 RSIu8,U8 01
+     &SubcaseAsgn+0x002A EB43         JMP	I8 $LK,"&SubcaseAsgn+0x006F",A="FL:C:/Home/Test/CaseUf/SubcaseAsgn.HC.Z,1"$ 	// Outside switch
+
+     // Case 2
+     &SubcaseAsgn+0x002C 33F6         XOR	U64 RSI,U64 RSI
+     &SubcaseAsgn+0x002E 40B602       MOV	U8 RSIu8,U8 02
+     &SubcaseAsgn+0x0031 EB3C         JMP	I8 $LK,"&SubcaseAsgn+0x006F",A="FL:C:/Home/Test/CaseUf/SubcaseAsgn.HC.Z,1"$ 	// Outside switch
+
+     // Start of subswitch
+     &SubcaseAsgn+0x0033 57           PUSH	U64 RDI
+     &SubcaseAsgn+0x0034 6A01         PUSH	I8 01
+     &SubcaseAsgn+0x0036 68D3673831   PUSH	I32 313867D3
+     &SubcaseAsgn+0x003B E826E0C8CE   CALL	I32 $LK,"&Print+0x0000",A="FL:C:/Kernel/StrPrint.HC.Z,890"$ 
+     &SubcaseAsgn+0x0040 4883C418     ADD	U64 RSP,I8 18
+     &SubcaseAsgn+0x0044 C3           RET
+
+     // Case 3 
+     &SubcaseAsgn+0x0045 E8E9FFFFFF   CALL	I32 $LK,"&SubcaseAsgn+0x0033",A="FL:C:/Home/Test/CaseUf/SubcaseAsgn.HC.Z,1"$ // Subswitch start call
+     &SubcaseAsgn+0x004A 33F6         XOR	U64 RSI,U64 RSI
+     &SubcaseAsgn+0x004C 40B603       MOV	U8 RSIu8,U8 03
+     &SubcaseAsgn+0x004F EB0A         JMP	I8 $LK,"&SubcaseAsgn+0x005B",A="FL:C:/Home/Test/CaseUf/SubcaseAsgn.HC.Z,1"$ // Subswitch end call
+
+     // Case 4
+     &SubcaseAsgn+0x0051 E8DDFFFFFF   CALL	I32 $LK,"&SubcaseAsgn+0x0033",A="FL:C:/Home/Test/CaseUf/SubcaseAsgn.HC.Z,1"$ 
+     &SubcaseAsgn+0x0056 33F6         XOR	U64 RSI,U64 RSI
+     &SubcaseAsgn+0x0058 40B604       MOV	U8 RSIu8,U8 04
+
+     // End of subswitch
+     &SubcaseAsgn+0x005B 6A00         PUSH	I8 00
+     &SubcaseAsgn+0x005D 68D6673831   PUSH	I32 313867D6
+     &SubcaseAsgn+0x0062 E8FFDFC8CE   CALL	I32 $LK,"&Print+0x0000",A="FL:C:/Kernel/StrPrint.HC.Z,890"$ 
+     &SubcaseAsgn+0x0067 4883C410     ADD	U64 RSP,I8 10
+     &SubcaseAsgn+0x006B EB02         JMP	I8 $LK,"&SubcaseAsgn+0x006F",A="FL:C:/Home/Test/CaseUf/SubcaseAsgn.HC.Z,1"$ // Outside switch
+
+     // Default case
+     &SubcaseAsgn+0x006D 33F6         XOR	U64 RSI,U64 RSI
+
+     // Outside switch
+     &SubcaseAsgn+0x006F 56           PUSH	U64 RSI
+     &SubcaseAsgn+0x0070 6A01         PUSH	I8 01
+     &SubcaseAsgn+0x0072 68DB673831   PUSH	I32 313867DB
+     &SubcaseAsgn+0x0077 E8EADFC8CE   CALL	I32 $LK,"&Print+0x0000",A="FL:C:/Kernel/StrPrint.HC.Z,890"$ 
+     &SubcaseAsgn+0x007C 4883C418     ADD	U64 RSP,I8 18
+     &SubcaseAsgn+0x0080 5F           POP	U64 RDI
+     &SubcaseAsgn+0x0081 5E           POP	U64 RSI
+     &SubcaseAsgn+0x0082 C9           LEAVE
+     &SubcaseAsgn+0x0083 C20800       RET1	I16 0008
+     &SubcaseAsgn+0x0086 480007       ADD	U8 [RDI],U8 AL
+     &SubcaseAsgn+0x0089 202C25640045 AND	U8 6E450064[RSP*1],U8 CH
+     &SubcaseAsgn+0x008F 6E          
+     &SubcaseAsgn+0x0090 640A00       OR	U8 AL,U8 FS:[RAX]
+     &SubcaseAsgn+0x0093 25640A0000   AND	U32 EAX,U32 00000A64

@@ -26,5 +26,5 @@ $FG,2$Shutdown commands $FG$-
 
 
 $FG,2$References $FG$-
-1. Boot process is $LK,"here",A="HI:Boot"$
-2. Alt-keymaps is $LK,"here",A="FI:C:/Home/HomeKeyPlugIns.HC"$
+1. Boot process is described $LK,"here",A="HI:Boot"$
+2. Alt-keymaps are $LK,"here",A="FI:C:/Home/HomeKeyPlugIns.HC"$
