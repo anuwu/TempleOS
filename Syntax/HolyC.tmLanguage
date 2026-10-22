@@ -454,8 +454,6 @@
 				</dict>
 				<key>2</key>
 				<dict>
-					<key>comment</key>
-					<string>https://en.cppreference.com/w/cpp/language/dependent_name</string>
 					<key>name</key>
 					<string>storage.modifier.template.c++</string>
 				</dict>
